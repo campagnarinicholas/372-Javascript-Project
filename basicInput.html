@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Data</title>
+</head>
+<body>
+    <h1>Do you prefer cats or dogs?</h1>
+    <form>
+        <input type="text" id="textbox" onchange="typeCheck()" reload=false>
+    </form>
+    <div id="toChange">
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    function typeCheck() {
+        
+        var line = document.getElementById("textbox");
+        var toChange = document.getElementById("toChange");
+        if (line.value == "cats") {
+            alert("Good choice");
+        }
+        else if (line.value == "dogs") {
+            alert("Also good choice")
+        }
+        else {
+            alert("Not recognized");
+        }
+    }
+</script>

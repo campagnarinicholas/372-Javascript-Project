@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World</title>
+  </head>
+
+  <body>
+    <!-- First program. -->
+    <!-- Alert user in 2 diff ways-->
+    <button onclick="alert('Hello!')">Hello!</button><br /> <!-- Button Alert -->
+    <input
+      id="name"
+      type="text"
+      onchange="helloFriend()"
+      placeholder="What is your name?"
+    /><!-- JS Function executes when user changes box and hits enter-->
+  </body>
+</html>
+
+<script>
+  function helloFriend() {
+      // Get name reference from HTML doc
+    let name = document.getElementById("name");
+    alert("Hello " + name.value + "!");
+    // alert() is a global function that you can call whenever
+  }
+</script>

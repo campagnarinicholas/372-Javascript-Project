@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Adding</title>
+  </head>
+  <body>
+    <div id="top"></div>
+    <div>
+      <button value="1" onclick="buildLine(1)">1</button>
+      <button value="2" onclick="buildLine(2)">2</button>
+      <button value="3" onclick="buildLine(3)">3</button>
+    </div>
+    <div>
+      <button value="4" onclick="buildLine(4)">4</button>
+      <button value="5" onclick="buildLine(5)">5</button>
+      <button value="6" onclick="buildLine(6)">6</button>
+    </div>
+    <div>
+      <button value="7" onclick="buildLine(7)">7</button>
+      <button value="8" onclick="buildLine(8)">8</button>
+      <button value="9" onclick="buildLine(9)">9</button>
+    </div>
+    <div>
+      <button vaule="+" onclick="buildLine(-1)">+</button>
+      <button vaule="=" onclick="buildLine(-2)">=</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  var values = [];
+  function buildLine(num) {
+      /*
+      Builds our value list, which contains the string repesentations
+      of the operations we're doing.
+      Updates <div> above calc to show our expression as we build it.
+      */
+
+      // -1 and -2 are special parameters dictating operators
+    if (num == -1) {
+      values.push("+");
+      document.getElementById("top").innerHTML += "+";
+      return;
+    }
+    if (num == -2) {
+        // if num==-2 user clicked "="
+        // calculate value, empty array, add that value to first 
+        // slot of cleared array so we can keep adding to it
+      let val = calcValue();
+      document.getElementById("top").innerHTML = val;
+      values = [];
+      values.push(val);
+      return;
+    }
+
+    values.push(num);
+    document.getElementById("top").innerHTML += num;
+  }
+
+  function calcValue() {
+    // Calculates value for ONLY addition and returns that sum.
+    let stringVal = "";
+    let sum = 0;
+    let val1 = 0;
+    for (let i = 0; i < values.length; i++) {
+      if (values[i] != "+") {
+        stringVal += values[i];
+      } else if (values[i] == "+") {
+        val1 = parseInt(stringVal);
+        sum += val1;
+        val1 = 0;
+        stringVal = "";
+      }
+    }
+    val1 = parseInt(stringVal);
+    sum += val1;
+    return sum;
+  }
+</script>

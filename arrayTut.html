@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Tutorial</title>
+</head>
+<h1>Sandwich Builder</h1>
+<body>
+
+<h3>Bread: </h3>
+<button onclick="addFood('White Slice')">White</button>
+<button onclick="addFood('Rye Slice')">Rye</button>
+<button onclick="addFood('Whole Grain Slice')">Whole Grain</button>
+
+<h3>Meats:</h3>
+<button onclick="addFood('Ham')">Ham</button>
+<button onclick="addFood('Salami')">Salami</button>
+<button onclick="addFood('Turkey')">Turkey</button>
+<button onclick="addFood('Chicken')">Chicken</button>
+
+<h3>Veggies:</h3>
+<button onclick="addFood('Tomato')">Tomato</button>
+<button onclick="addFood('Onions')">Onions</button>
+<button onclick="addFood('Peppers')">Peppers</button>
+<button onclick="addFood('Lettuce')">Lettuce</button>
+
+<div>
+    <h2>Sandwich Contents</h1>
+    <ul>
+        <div id="change">
+            
+        </div>
+
+    </ul>
+    
+</div>
+
+</body>
+</html>
+
+<script>
+let foods = [];
+let bread = ["White Slice", "Rye Slice", "Whole Grain Slice"];
+function addFood(food) {
+    foods.push(food);
+    htmlChange = "";
+    // If I did "food in foods" food would be the index
+    for (let food of foods) {
+        htmlChange += "<li>" + food + "</li>";
+    }
+    // check left and rightmost ends of foods to check for bread 
+    // (no bread sandwiches tho :/)
+    if (bread.includes(foods[0]) && bread.includes(foods[foods.length-1]) && foods.length > 1) {
+        alert("Your sandwich had " + foods);
+        // empty our change string and foods array 
+        htmlChange = "";
+        foods = []; // <- apparently this is the 'quickest' way (computes fastest)
+    }
+    // update the innerHTML, which could contain ingredients 
+    // of our sandwich, or nothing ""
+    document.getElementById("change").innerHTML = htmlChange;
+    
+}
+</script>
