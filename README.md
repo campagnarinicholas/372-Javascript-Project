@@ -1,4 +1,5 @@
 # 372-Javscript-Project
 Intro to JS Project for 372 by Nicholas Campagnari
 
-Start at the slides and they should guide you through this.
+Use the slides to get your workstation set up, then watch the video for hands on code demos.
+Comments are in code to explain what I missed/what needs to be restated from the video. 
